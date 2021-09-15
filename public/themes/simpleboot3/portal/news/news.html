@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ;="" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/themes/simpleboot3/public/css/ui.css">
+    <link rel="shortcut icon" href="/themes/simpleboot3/public/img/favicon.ico" >
+    <style>
+    	.aui-list-cells .aui-list-cell-cn {
+	    font-size: 15px;
+	    color: #273D4B !important;
+		}
+		.aui-list-cell-fl img {
+	    margin-left: 15% !important;
+	}
+	.layui-m-layerchild {
+	   
+	    font-size: 15px !important;
+	    background-color:#fff !important;
+	    color:#273D4B !important;
+	    letter-spacing:0.1em;
+	    text-indent:1.5em;
+	   
+	}
+	.layui-m-layerchild{
+		position:relative !important;
+		bottom:0px !important;
+		height:80% !important;
+		padding-top:10%;
+	}
+    </style>
+    <script src="/fjs/jquery_002.js"></script>
+<link href="/themes/simpleboot3/public/css/layer.css" type="text/css" rel="styleSheet" id="layermcss"></head>
+<body style="background-color:#FFFFFF;">
+    <div class="aui-container">
+        <div class="aui-page">
+            <!-- 头部 begin-->
+            <div class="header">
+                <div class="header-background"></div>
+                <div class="toolbar statusbar-padding">
+                    <button class="bar-button back-button" onclick="history.go(-1);" dwz-event-on-click="click"><i class="icon icon-back"></i></button>
+                    <div class="header-title">
+                      <if condition="($type eq 1)">
+                        <div class="title" style="background-color:#fff;color: #273D4B !important" data-locale="System Bulletin">系统公告</div>
+                        <else>
+                          <div class="title" style="background-color:#fff;color: #273D4B !important" data-locale="System Bulletin1">行业资讯</div>
+                      </if>
+                    </div>
+                </div>
+            </div>
+            <!-- 头部 End-->
+            <div style="height:44px"></div>
+            <!-- 内容 -->
+
+
+            <div class="aui-card-blue">
+                <div class="aui-list-cells" style="background-color:#fff;color:background-color:#273D4B;">
+                     
+                        <volist name="notice" id="v">
+                        <a href="javascript:;" onclick="showinfos('{$v.Id}')" ;="" class="aui-list-cell">
+                        <!-- <div class="aui-list-cell-fl"><img src="/themes/simpleboot3/public/img/me-11.png"></div> -->
+                        <div class="aui-list-cell-cn"> {$v.title}</div>
+                        <div class="aui-list-cell-fr"></div>
+                        </a>
+                    
+
+
+                          <textarea style="display: none;" name="" id="{$v.Id}" cols="30" rows="10">    
+                           {$v.content}                  
+                            </textarea>
+         
+                    </volist>
+
+                    </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+        
+
+
+    <script src="/themes/simpleboot3/public/js/jquery.js"></script>
+    <script src="/themes/simpleboot3/public/js/layer.js"></script>
+    <script src="/themes/simpleboot3/public/js/jquery.i18n.properties.js"></script>
+
+    <script src="/themes/simpleboot3/public/js/setlanguage.js"></script>
+    <script>
+        function showinfos(id){
+            
+            var html = $('#'+id).val();
+            layer.open({
+                type: 1
+                ,content: html
+                ,anim: 'up'
+                ,style: 'position:fixed; left:0; top:85px; width:100%; height:90%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;overflow:auto;'
+            });
+        }
+    </script>
+
+    
+
+
+</body></html>
+<script type="text/javascript">
+    document.addEventListener('plusready', function () {
+  var webview = plus.webview.currentWebview()
+  plus.key.addEventListener('backbutton', function () {
+    webview.canBack(function (e) {
+      if (e.canBack) {
+        webview.back()
+      } else {
+        // webview.close() //hide,quit
+        // plus.runtime.quit()
+        // 首页返回键处理
+        // 处理逻辑：1秒内，连续两次按返回键，则退出应用；
+        var first = null
+        plus.key.addEventListener(
+          'backbutton',
+          function () {
+            // 首次按键，提示‘再按一次退出应用’
+            if (!first) {
+              first = new Date().getTime()
+              console.log('再按一次退出应用') // 此处可以用自定义提示
+              setTimeout(function () {
+                first = null
+              }, 1000)
+            } else {
+              if (new Date().getTime() - first < 1500) {
+                plus.runtime.quit()
+              }
+            }
+          },
+          false
+        )
+      }
+    })
+  })
+})
+
+</script>

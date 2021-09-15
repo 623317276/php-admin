@@ -1,0 +1,83 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="javascript:;">所有公告</a></li>
+        <li><a href="{:url('AdminNoticelist/add')}">添加公告</a></li>
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('AdminNoticelist/index')}">
+        分类:
+        <select name="category" style="width:120px;height:30px;">
+            <option value="">--请选择--</option>
+            <volist name="category" id="v">
+                <option value="{$v['Id']}" <if condition="isset($id) && $id eq $v['Id']">selected</if>>{$v['categoryname']}</option>
+            </volist>
+        </select>&nbsp;
+        标题:
+        <input type="text" class="form-control" name="title" style="width: 200px;"
+               value='<if condition="!empty($title)">{$title}</if>' placeholder="请输入标题...">
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('AdminNoticelist/index')}">清空</a>
+    </form>
+    <form class="js-ajax-form" action="" method="post">
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <!-- <th width="15">
+                    <label>
+                        <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+                    </label>
+                </th> -->
+                <th width="50">ID</th>
+                <th width="70">标题</th>
+                <th width="70">分类</th>
+                <th width="130">发布时间</th>
+                <th width="70">状态</th>
+                <th width="90">操作</th>
+            </tr>
+            </thead>
+            <foreach name="noticelist" item="vo">
+                <tr>
+                    <!-- <td>
+                        <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
+                               value="{$vo.Id}" title="ID:{$vo.Id}">
+                    </td> -->
+
+                    <td><b>{$vo.Id}</b></td>
+                    <td>{$vo['title']}</td>
+                    <td>
+                        <if condition="$vo['noticecategory'] eq 1">
+                            <p>热门</p>
+                            <else/>
+                            <p>最新</p>
+                            </if>
+                    </td>
+                    <td>{$vo['time']|date="Y-m-d",###}</td>
+                    <td>
+                        <if condition="$vo['state'] eq 1">
+                            <a class="btn btn-danger small">开启</a>
+                            <else/>
+                            <a class="btn btn-primary small">禁用</a>
+                     </if>
+                    </td>
+
+                    <td>
+                        <a href="{:url('AdminNoticelist/edit',array('id'=>$vo['Id']))}">{:lang('EDIT')}</a>
+                        <a href="{:url('AdminNoticelist/delete',array('id'=>$vo['Id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+                    </td>
+                </tr>
+            </foreach>
+            <tfoot>
+            </tfoot>
+        </table>
+        <ul class="pagination">{$page|default=''}</ul>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>PFF</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="/themes/simpleboot3/public/css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/themes/simpleboot3/public/css/login.css" />
+		<link rel="shortcut icon" href="/themes/simpleboot3/public/img/favicon.ico" >
+	</head>
+
+	<body style="background-color:#fff;">
+		<p class="login" data-locale="login">登录</p>
+		<form class="mui-input-group">
+		    <div class="mui-input-row">
+		   	 <input type="text" class="mui-input-clear" placeholder="请输入手机号"  name="user_email" id="user_email">
+		    </div>
+		    <div class="mui-input-row">
+		        <input type="password" class="mui-input-password" placeholder="请输入密码" data-placeholder="shupass" name="user_pass" id="user_pass">
+		    </div>
+		    <div class="mui-row" style="margin:0 auto;width:80%;color:#6D778B">
+		    	<div class="mui-col-xs-6">
+		    	 	<div class="reg"></div>
+			    </div>
+			   
+			    <div class="mui-col-xs-6" style="text-align:right;">
+			    	 <div class="forget" id="forgetpwd" data-locale="forgetword">忘记密码</div>
+			    </div>
+		    </div>
+		   
+		    <div class="mui-button-row" style="margin:0 auto;width:75%"> 
+		        <button type="button" class="mui-btn mui-btn-primary login_button" id="nextbu" data-locale="login">登录</button>
+		    </div> 
+	
+		</form>
+		<script src="/themes/simpleboot3/public/js/mui.min.js"></script> 
+		<script src="/themes/simpleboot3/public/js/jquery.js"></script> 
+		<script src="/themes/simpleboot3/public/js/jquery.i18n.properties.js"></script>
+
+    <script src="/themes/simpleboot3/public/js/setlanguage.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>
+
+<script type="text/javascript">
+
+	$("#nextbu").on('touchend',function(){
+    	var phone = $("#user_email").val();
+    	var code = $("#user_pass").val();
+    	if(phone == ""){
+    		mui.toast("手机号不为空",{duration:1000}); return false;
+    	}
+    	if(code == ""){
+    		mui.toast("密码不为空",{duration:1000}); return false;
+    	}
+    	 $.ajax({
+                type: 'post',
+                dataType:'json',
+                url: "{:url('portal/login/login')}",
+                data: $("form").serialize(),
+                success: function(data) {
+                 console.log(data);
+                    if (data.code == 1) { 
+                    	mui.toast(data.resule,{duration:1000}); 
+                       	window.location.href="{:url('portal/index/index')}";   
+                    }else {
+                       mui.toast(data.resule,{duration:1000}); return false;
+                    }
+                }
+            });
+
+	});
+
+
+	$("#forgetpwd").click(function(){
+		 window.location.href="{:url('portal/login/forget_password',array('type'=>1))}"; 
+			});
+	$("#zhuce").click(function(){
+		 window.location.href="{:url('portal/login/register')}";
+			});
+</script>

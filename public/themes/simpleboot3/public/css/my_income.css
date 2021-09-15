@@ -1,0 +1,67 @@
+.mui-bar{
+	background-color:#fff !important;
+}
+.mui-active{
+	background-color:#transparent !important;
+	color:#000;
+}
+.mui-title{
+	color:#1F3F58 !important;
+	font-size:18px !important;
+}
+.mui-content{
+	background-color:#F8F8FA !important;
+	width:90%;
+	margin:5% auto;
+	line-height:21px;
+	letter-spacing:0.1em;
+}
+.mui-bar-nav {
+	-webkit-box-shadow: 0 1px 6px transparent; 
+     box-shadow: 0 1px 6px transparent; 
+}
+.income_top{
+	color:#6D778B;
+	text-align:center;
+	font-size:15px;
+	margin-bottom:5%;
+}
+.income_bottom div{
+	font-size:16px;
+	color:#1F3F58;
+	margin-bottom:3%;
+}
+.income_bottom p{
+	font-size:14px;
+	color:#6D778B;
+}
+.mui-table-view-cell{
+	width:100%;
+	background-color:#fff;
+	padding:5%;
+	margin:3% 0;
+}
+.mui-table-view {
+	background-color:transparent;
+}
+.mui-table-view:before {
+	background-color:transparent !important;
+}
+.mui-table-view:after {
+	background-color:transparent !important;
+}
+.mui-table-view-cell:before {
+	background-color:transparent !important;
+}
+.mui-table-view-cell:after {
+	background-color:transparent !important;
+}
+.active{
+	color:#fff;
+	font-size:15px;
+	background-color:#438EDB;
+	padding:1%;
+}
+.total_income,.share_income,.team_income,.share_income{
+	display:none;
+}

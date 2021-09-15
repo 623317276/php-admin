@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>STD</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"/>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="robots" content="noindex,nofollow">
+    <!-- HTML5 shim for IE8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <link href="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/bootstrap.min.css" rel="stylesheet">
+    <link href="__STATIC__/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/login.css" rel="stylesheet">
+    <link href="__STATIC__/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__STATIC__/Admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+
+    <link href="__STATIC__/Admin/css/animate.min.css" rel="stylesheet">
+    <link href="__STATIC__/Admin/css/login.min.css" rel="stylesheet">
+    <link href="__STATIC__/Admin/login/supersized.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        if (window.parent !== window.self) {
+            document.write              = '';
+            window.parent.location.href = window.self.location.href;
+            setTimeout(function () {
+                document.body.innerHTML = '';
+            }, 0);
+        }
+    </script>
+    <style type="text/css">
+        html { overflow-y: hidden; }
+    </style>
+    <script type="text/javascript">
+        var url='__STATIC__';
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="color:#ffffff">
+                <h1 class="text-center">STD</h1>
+                <form class="js-ajax-form" action="{:url('public/doLogin')}" method="post">
+                    <div class="form-group">
+                        <input type="text" id="input_username" class="form-control" name="username"
+                               placeholder="{:lang('USERNAME_OR_EMAIL')}" title="{:lang('USERNAME_OR_EMAIL')}"
+                               value="{:cookie('admin_username')}" data-rule-required="true" data-msg-required="">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" id="input_password" class="form-control" name="password"
+                               placeholder="{:lang('PASSWORD')}" title="{:lang('PASSWORD')}" data-rule-required="true"
+                               data-msg-required="">
+                    </div>
+
+                    <!--<div class="form-group">-->
+                    <!--    <div style="position: relative;">-->
+                    <!--        <input type="text" name="captcha" placeholder="验证码" class="form-control captcha" id="captcha">-->
+                    <!--        <captcha height="32" width="150" font-size="18"-->
+                    <!--                 style="cursor: pointer;position:absolute;right:1px;top:1px;"/>-->
+                    <!--    </div>  -->
+                    <!--</div>-->
+                   <div class="form-group">
+                        <input type="text" style="width:55%;height:34px;color: black;" id="codes" name="code">
+                        <input type="button" class="btn get_code"  value="谷歌验证码" style="color: black;" selected>
+                    </div>  
+                    <!-- <div class="form-group">-->
+                    <!--    <input type="text" style="width:55%;height:34px;color: black;" id="pcode" name="pcode">-->
+                    <!--    <input type="button" class="btn get_code" id="code" value="获取手机验证码" style="color: black;">-->
+                    <!--</div>  -->
+
+                    <div class="form-group">
+                        <input type="hidden" name="redirect" value="">
+                        <button class="btn btn-primary btn-block js-ajax-submit" type="submit" style="margin-left: 0px"
+                                data-loadingmsg="{:lang('LOADING')}">
+                            {:lang('LOGIN')}
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //全局变量
+    var GV = {
+        ROOT: "__ROOT__/",
+        WEB_ROOT: "__WEB_ROOT__/",
+        JS_ROOT: "static/js/",
+        APP: ''/*当前应用名*/
+    };
+</script>
+<script src="__TMPL__/public/assets/js/jquery-1.10.2.min.js"></script>
+<script src="__STATIC__/js/wind.js"></script>
+<script src="__STATIC__/js/admin.js"></script>
+<script>
+    (function () {
+        document.getElementById('input_username').focus();
+    })();
+</script>
+<ul id="supersized" class="quality" style="visibility: visible;">
+
+    <li class="slide-1 prevslide" style="visibility: visible; opacity: 1;">
+        <a target="_blank">
+            <img src="__STATIC__/Admin/img/2.jpg" style="width: 100%;  top: 0px; height: 100%;">
+        </a>
+    </li>
+
+</ul>
+</body>
+</html>
+<script type="text/javascript">
+
+    //获取邮箱验证码
+    $("#code").click(function(){
+        var captcha = $("#captcha").val();  
+        var codes = $("#codes").val();  
+        var username = $("#input_username").val();  
+        // var email = '178617515@qq.com';
+
+        // if(email == ""){
+            
+        //     mui.toast("邮箱不为空",{duration:1000}); return false;
+
+        // }
+
+            var code = $("#code");
+                        code.attr("disabled","disabled");
+                        setTimeout(function(){
+                            code.css("opacity","0.8");
+                        },1000)
+                        var time = 60;
+                        var set=setInterval(function(){
+                        code.val(""+--time+"秒后获取");
+                        }, 1000);
+                        setTimeout(function(){
+                        code.attr("disabled",false).val("重新获取");
+                        clearInterval(set);
+                        }, 60000); 
+
+         $.ajax({ 
+                type: 'post',
+                dataType:'json', 
+                url: "{:url('public/sendcode')}", 
+                data: {captcha:captcha,code:codes,username:username},  
+                success: function(data) {
+                    if (data.code == 1) {  
+                        alert(data.resule);return false;
+                        // mui.toast(data.resule,{duration:1000}); return false;
+                    }else {
+                        alert(data.resule);return false;
+                       // mui.toast(data.resule,{duration:1000}); return false;
+                    }
+                }
+            });
+    });
+
+
+
+</script>

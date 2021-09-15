@@ -1,0 +1,169 @@
+.mui-content{
+	background-color:#F8F8FA !important;
+
+}
+.mui-active{
+	background-color:#transparent !important;
+	color:#000;
+}
+.wallet_top{ 
+	margin:5% auto;
+	width:65%;
+	color:#1F3F58;
+	text-align:center;
+	border:1px solid #DDE4E6;
+	border-radius:10px;
+	font-size:15px;
+}
+.wallet_top div{
+	padding:2%;
+	border-left:1px solid #DDE4E6;
+}
+.active{
+	color:#fff;
+	background-color:#1882D4;
+}
+.wallet_middle{
+	color:#fff;
+	width:90%;
+	margin:0 auto;
+	background-color:#368CC8;
+	padding:0 5% 2% 0%;
+	border-radius:10px;
+	border:1px solid #368CC8;
+}
+.wallet_middle1{
+	color:#fff;
+	width:90%;
+	margin:0 auto;
+	background-color:#368CC8;
+	padding:2% 5%;
+	border-radius:10px;
+	border:1px solid #368CC8;
+}
+
+.total{
+	color:#6D778C;
+	font-size:16px;
+	margin-bottom:5%;
+	margin-left:8%;
+}
+input{
+	background-color:transparent !important;
+	font-size:30px;
+}
+.chongzhi{
+	margin-top:4%;
+	margin-bottom:2%;
+	padding-top:5%;
+	text-align:center;
+}
+.chongzhi img{
+	width:16%;
+}
+.chongzhi div{
+	font-size:13px;
+	background-color:#25ABFF;
+	border-radius:20px;
+	color:#fff;
+	padding:1% 0;
+}
+.ming{
+	font-size:16px;
+	margin:5%;
+	color:#1F3F58;
+}
+.mui-table-view {
+	background-color:transparent;
+}
+.qianshu{
+	padding-top:3%;
+}
+.qianshu p{
+	color:#1F3F58;
+}
+.mui-table-view-cell{
+	background-color:#fff;
+	color:#2B4659;
+	padding:6% 3%;
+	width:90%;
+	margin:3% auto;
+	border-radius:10px;
+}
+.mui-table-view:before {
+	background-color:transparent !important;
+}
+.mui-table-view:after {
+	background-color:transparent !important;
+}
+.mui-table-view-cell:before {
+	background-color:transparent !important;
+}
+.mui-table-view-cell:after {
+	background-color:transparent !important;
+}
+.time{
+	font-size:14px;
+	margin-top:3%;
+}
+.money{
+	font-size:18px;
+	text-align:center;
+}
+.wallet_left{
+	text-align:left;
+}
+.wallet_left img{
+	width:25%;
+}
+.wallet_left div{
+	font-size:15px;
+	margin-top:3%;
+}
+.wallet_right{
+	text-align:right;
+	font-size:25px;
+	margin-top:10%;
+}
+.chong{
+	font-size:15px;
+}
+.EOS,.PB,.usdt,.SUB{
+	display:none;
+}
+.resource img{
+				width:80%;
+				margin-top:48%;
+			}
+			.bizhong{
+				font-size:17px;
+				margin-top:4%;
+				padding-left:3%;
+			}
+			.qianshu{
+				text-align:right;
+				padding-right:3%;
+			}
+			.qianshu div{
+				font-size:16px;
+				margin-bottom:2%;
+				
+			}
+			.qianshu p{
+				font-size:14px;
+				margin-left:2%;
+				color:#1F3F58;
+			}
+			.jian{
+				text-align:right;
+			}
+			.jian img{
+				width:70%;
+				margin-top:35%;
+				
+			}
+			.diandian{
+				font-size:30px;
+				margin-top:-10px;
+				text-align:right;
+			}

@@ -1,0 +1,55 @@
+<include file="public@header"/>
+<body>
+<div class="wrap js-check-wrap">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="{:url('adminIndex/index')}">会员列表</a></li>
+		<li><a href="{:url('adminIndex/add')}">修改</a></li>
+	</ul>
+	<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('adminIndex/editPost')}">
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><span class="form-required">*</span>用户名:</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="text" class="form-control" name="username" value="{$user.user_nickname}" style="width:200px;">
+			</div>
+		</div>
+		<input type="hidden" class="form-control" name="id" value="{$user.id}" style="width:200px;">
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><span class="form-required">*</span>邮箱:</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="text" class="form-control" name="emial" value="{$user.user_email}" style="width:200px;">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-2 control-label"><span class="form-required">*</span>手机号:</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="text" class="form-control" name="phone" value="{$user.mobile}" style="width:200px;">
+			</div>
+		</div>
+
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-primary js-ajax-submit">{:lang("SAVE")}</button>
+			<a class="btn btn-default" href="javascript:history.back(-1);">返回</a>
+		</div>
+	</form>
+
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+<script type="text/javascript">
+	//编辑器路径定义
+	var editorURL = GV.WEB_ROOT;
+</script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+
+		editorcontent = new baidu.editor.ui.Editor();
+		editorcontent.render('contents');
+		try {
+			editorcontent.sync();
+		} catch (err) {
+		}
+	})
+</script>
+</body>
+</html>

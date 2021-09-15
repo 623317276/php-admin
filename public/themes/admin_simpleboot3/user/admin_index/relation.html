@@ -1,0 +1,43 @@
+
+<include file="public@header"/>
+<style>
+   li{list-style-type:none;}
+</style>
+</head>
+<link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<body>
+<div class="wrap">
+    <form class="well form-inline margin-top-20" method="post" action="{:url('user/adminIndex/relation')}">
+        查询下级：
+        <input class="form-control" type="text" name="subordinate" style="width: 200px;" value="{:input('request.subordinate')}"
+               placeholder="请输入手机号">
+      
+        
+    
+        查询上一级：
+        <input class="form-control" type="text" name="superior" style="width: 200px;" value="{:input('request.superior')}"
+               placeholder="请输入手机号">   
+
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('user/adminIndex/relation')}">清空</a>
+    </form>
+
+    <div class="ibox-title">
+        <h5><i class="fa fa-tasks"></i> 推荐关系图</h5>
+    </div>
+    <div class="innerUl">
+    </div>
+</div>
+</body>
+<script src="__STATIC__/js/proTree.js"></script>
+<script>
+    var arr = {$vv};
+    //标题的图标是集成bootstrap 的图标  更改 请参考bootstrap的字体图标替换自己想要的图标
+    $(".innerUl").ProTree({
+        arr: arr,
+        simIcon: "fa fa-male",//单个标题字体图标 不传默认glyphicon-file
+        mouIconOpen: "fa fa-user",//含多个标题的打开字体图标  不传默认glyphicon-folder-open
+        mouIconClose:"fa fa-user-plus"//含多个标题的关闭的字体图标  不传默认glyphicon-folder-close
+    })
+</script>
+</html>

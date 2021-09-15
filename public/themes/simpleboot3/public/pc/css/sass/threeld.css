@@ -1,0 +1,36 @@
+.pick-area {
+    margin: 10px;
+
+}
+
+.a {
+    /*width: 100%;*/
+    margin: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.a input {
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    outline-color: greenyellow;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    margin: 5px;
+    color: #333;
+}
+
+h4 {
+    margin: 5px;
+    color: #666;
+    padding: 0 20px;
+    font-weight: 100;
+}

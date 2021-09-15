@@ -1,0 +1,328 @@
+<include file="public@header" />
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('Set/index')}">系统配置</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('set/setPost')}">
+
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>活期理财</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="hqone"
+                           value="{$set.hqone|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">100-999(日利息|每日增加|增至最高)</p>
+                </div>  
+
+                <div class="col-md-2" style="width:13.667%;">
+                    <input type="text" class="form-control" id="input-yiji" name="hqtwo"
+                           value="{$set.hqtwo|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">1000-9999</p>
+                </div>
+                <div class="col-md-2" style="width:13.667%;">
+                    <input type="text" class="form-control" id="input-yiji" name="hqsan"
+                           value="{$set.hqsan|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">10000以上</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>推荐奖</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="tjone"
+                           value="{$set.tjone|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">100-999</p>
+                </div>  
+
+                <div class="col-md-2" style="width:13.667%;">
+                    <input type="text" class="form-control" id="input-yiji" name="tjtwo"
+                           value="{$set.tjtwo|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">1000-9999</p>
+                </div>
+                <div class="col-md-2" style="width:13.667%;">
+                    <input type="text" class="form-control" id="input-yiji" name="tjsan"
+                           value="{$set.tjsan|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">10000以上</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>大小区奖</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="dxone"
+                           value="{$set.dxone|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">100-999</p>
+                </div>  
+
+                <div class="col-md-2" style="width:13.667%;">
+                    <input type="text" class="form-control" id="input-yiji" name="dxtwo"
+                           value="{$set.dxtwo|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">1000-9999</p>
+                </div>
+                <div class="col-md-2" style="width:13.667%;">
+                    <input type="text" class="form-control" id="input-yiji" name="dxsan"
+                           value="{$set.dxsan|default=''}" style="width: 150px;">
+                
+                    <p class="help-block">10000以上</p>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>静态收益设置</label>
+            <div class="row">
+                <span>
+                    <input id="startTime" type="text" class="yhgl_input date" value='<if condition="!empty($stime)">{$stime}</if>' readonly ='readonly'>
+                    <span class="mr5">至</span> 
+                     <input id="endTime" type="text" class="yhgl_input date" value='<if condition="!empty($etime)">{$etime}</if>' readonly ='readonly'>
+                    
+                </span>
+                <span>
+                    <select id="xlk">
+                        <option value="">--请选择--</option>
+                        <option value="1">3万矿机</option>
+                        <option value="2">15万矿机</option>
+                    </select>
+                </span>
+                <span>
+                    <input  type="text" class="yhgl_input date" value='' id="ffm" placeholder="请输入数量">
+                </span>
+                <span>
+                    <input  type="text" class="yhgl_input date" value='' id="xz_uid" placeholder="请输入用户名">
+                </span>
+                <span>
+                    <input name="btn" id="btn" type="button"  value='发放'>
+                </span>
+            
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label"><span class="form-required">*</span>动态收益</label>
+            <div class="col-md-3">
+
+                <input type="text" class="form-control" id="input-push" name="directmoney"
+                       value="{$set.directmoney|default=''}" style="width: 200px; display: inline;">
+                <p class="help-block">直推投资设置</p>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="input-erjipush" name="secondmoney"
+                       value="{$set.secondmoney|default=''}" style="width: 200px; display: inline;">
+                <p class="help-block">直推收益设置</p>
+            </div>
+        </div> -->
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>转账手续费</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="zzfree"
+                           value="{$set.zzfree|default=''}" style="width: 150px;">
+                    <!--<p class="help-block">STD手续费按个数</p>-->
+                </div>
+            </div>      
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>提币手续费</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="fee"
+                           value="{$set.fee|default=''}" style="width: 150px;">
+                    <p class="help-block">STD手续费按个数</p>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="bffee"
+                           value="{$set.bffee|default=''}" style="width: 150px;">
+                    <p class="help-block">ETH手续费按百分比</p>
+                </div>
+            </div>      
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>每天提币次数</label>
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="input-yiji" name="tbnum"
+                           value="{$set.tbnum|default=''}" style="width: 200px;">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>提币审核开关</label>
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="input-yiji" name="tibkg"
+                           value="{$set.tibkg|default=''}" style="width: 150px;">
+                    <p class="help-block">提币大于{$set.tibkg}需要审核</p>
+                           
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>STD提币限额</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="tbxedi"
+                           value="{$set.tbxedi|default=''}" style="width: 150px;">
+                    <p class="help-block">提币最低限额</p>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="tbxemax"
+                           value="{$set.tbxemax|default=''}" style="width: 150px;">
+                    <p class="help-block">提币最高限额</p>
+                           
+                    
+                </div>
+            </div>
+           
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>注册推荐人赠送</label>
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="input-yiji" name="zs"
+                           value="{$set.zs|default=''}" style="width: 150px;">
+                    <p class="help-block"></p>  
+                           
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>签到配置</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="qds"
+                           value="{$set.qds|default=''}" style="width: 150px;">
+                    <p class="help-block">签到赠送数量(个)</p>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="qdday"
+                           value="{$set.qdday|default=''}" style="width: 150px;">
+                    <p class="help-block">签到赠送的总天数(天)</p>
+                </div>
+            </div>      
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>转账配置</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="zz_num"
+                           value="{$set.zz_num|default=''}" style="width: 150px;">
+                    <p class="help-block">每天转账次数</p>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="zz_nums"
+                           value="{$set.zz_nums|default=''}" style="width: 150px;">
+                    <p class="help-block">每天转账数量</p>
+                </div>
+            </div>      
+        </div>
+        <hr>
+         <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>无限制转账功能设置</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="zzvip_num"
+                           value="{$set.zzvip_num|default=''}" style="width: 150px;">
+                    <p class="help-block">每天转账次数</p>
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="zzvip_nums"
+                           value="{$set.zzvip_nums|default=''}" style="width: 150px;">
+                    <p class="help-block">每天转账数量</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+         <div class="form-group">
+            <label  class="col-sm-2 control-label"><span class="form-required">*</span>数字支付功能设置</label>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="input-yiji" name="number_pay"
+                           value="{$set.number_pay|default=''}" style="width: 150px;">
+                    <p class="help-block">每天支付数量</p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button style="margin-left: 35%;" type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+
+    function grant(a){
+        $.ajax({
+                type: 'post',
+                dataType:'json',
+                url: "{:url('admin/set/grant')}",
+                data: {type:a},
+                success: function(data) {
+                    if(data.code == 1){
+                        alert(data.msg);
+                        reload();
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+            });
+    }
+    $("#btn").click(function(){
+        var startTime = $("#startTime").val();//开始时间
+        var endTime = $("#endTime").val();//结束时间
+        var xlk = $("#xlk").val();//类型
+        var ffm = $("#ffm").val();//发放金额
+        var xz_uid = $("#xz_uid").val();//限制的用户
+        $.ajax({
+                type: 'post',
+                dataType:'json',
+                url: "{:url('admin/set/jtgrant')}",
+                data: {
+                    startTime:startTime,
+                    endTime:endTime,
+                    xlk:xlk,
+                    ffm:ffm,
+                    xz_uid:xz_uid
+                },
+                success: function(data) {
+                    if(data.code == 1){
+                        alert(data.msg);
+                        reload();
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+            });
+
+
+    })
+
+
+</script>
+ <script>
+        laydate({
+          elem: '#startTime'
+        });
+        laydate({
+          elem: '#endTime'
+        }); 
+    </script>

@@ -1,0 +1,92 @@
+.mui-bar{
+	background-color:#fff !important;
+}
+.mui-title{
+	color:#273D4B !important;
+	font-size:18px !important;
+}
+.mui-active{
+	background-color:#transparent !important;
+	color:#000;
+}
+.mui-content{
+	background-color:#F8F8FA !important;
+}
+.mui-bar-nav {
+	-webkit-box-shadow: 0 1px 6px transparent; 
+     box-shadow: 0 1px 6px transparent; 
+}
+.trading_top{
+	width:95%;
+	margin:0 auto;
+	background-color:#FFFFFF;
+	padding:5% 3%;
+	border-radius:5px;
+}
+.trading_top img{
+	width:100%;
+	height:100px;
+	margin:0 auto;
+	margin-top:3%;
+}
+.refer_price{
+	text-align:center;
+	position:relative;
+	top:85px;
+	
+}
+.refer_price button{
+	background-color:#2691E3;
+	border:1px solid #2691E3;
+	border-radius:20px;
+	text-align:center;
+	color:#fff;
+	font-size:15px;
+	letter-spacing:0.1em;
+}
+.refer_price span{
+	color:#2B4659;
+	font-size:17px;
+	line-height:21px;
+}
+.trading_center{
+	
+	margin-left:3%;
+	margin-top:5%;
+}
+.trading_center p{
+	font-size:15px;
+	color:#2B4659;
+	
+}
+.trading-bottom{
+	width:95%;
+	margin:0 auto;
+	padding:6% 3%;
+	background-color:#ffffff;
+	color:#2B4659;
+	font-size:16px;
+	border-radius:5px;
+}
+.tag{
+	margin-top:5%;
+}
+.tag div{
+	color:#1F3F58 !important;
+	font-size:15px;
+}
+input{
+	background-color:#E8EDF0 !important;
+	margin-top:3%;
+	border:0.5px solid #E8EDF0 !important;
+}
+.yijian button{
+	width:100%;
+	background-color:#2691E3;
+	border:1px solid #2691E3;
+	border-radius:15px;
+	color:#fff;
+	font-size:16px;
+	margin:4% 0;
+	padding:2%;
+}

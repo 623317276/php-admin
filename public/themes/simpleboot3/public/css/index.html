@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/themes/simpleboot3/public/js/mui.js"></script>
+    <link href="/themes/simpleboot3/public/css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/themes/simpleboot3/public/css/iconfont.css" />
+    <link rel="stylesheet" href="" />
+    <script src="/themes/simpleboot3/public/js/jquery.js"></script> 
+    <style>
+        .mui-bar{
+            background-color:#FFFFFF;
+            -webkit-box-shadow: 0 0 1px transparent; 
+     		box-shadow: 0 0 1px transparent;
+            
+        }
+        .mui-bar-tab .mui-tab-item {
+		
+		    color: #1F3F58;
+		    }
+        .mui-tab-item span{
+            font-size:14px;
+   
+        }
+        .mui-bar-tab .mui-tab-item.mui-active {
+            color: #25ABFF !important;
+        }
+        .mui-title{
+            color:#23284E !important;
+        }
+        .mui-bar-nav {
+        -webkit-box-shadow: 0 1px 6px transparent; 
+         box-shadow: 0 1px 6px transparent; 
+    }
+    #dian:after {
+        font-family: Muiicons;
+        position: absolute;
+        top: 6%;
+        right: 3%;
+        content: '\e581';
+        color: #888888;
+        }
+        #toggle{
+                color:#888888;
+                list-style: none;
+                position:relative;
+                border:1px solid #9E9E9E;
+                padding-left:0px;
+                padding:2px;
+                margin-top:10%;
+                border-radius:5px;
+                font-size:14px;
+            }
+            #xiala{
+                list-style:none;
+                position:absolute;
+                top:100%;
+                left:0%;
+                padding-left:0px;
+                display:none;
+                width:100%;
+                background-color:#ffffff;
+                
+            }
+            .back{
+                background-color:#25AAFD;
+            }
+            #xiala li{
+                padding:15% 5%;
+                border-bottom:1px solid #888888;
+            }
+        
+            #dian{
+                text-align:left;
+                padding-left:2px;
+            }
+    </style>
+</head>
+<body style="background-color:#fff;"> 
+      <header class="mui-bar mui-bar-nav mui-bar-nav-bg" id="header1" style="display:block;">
+            <h1 class="mui-title">DAPP</h1>
+             <div style="float:right;color:#888888;margin-top:1%;text-align:center;width:72px;">
+                <ul id="toggle">
+                    <li id="dian">English</li>
+                    <li>
+                        <ul id="xiala" >
+                            <li class="us back">English</li>
+                            <li class="zh">中文</li>
+                            <li>韩语</li>
+                            <li>日语</li>
+                            <li style="border:0px;">法语</li>
+                        </ul>
+                    </li>
+                </ul> 
+           </div>
+        </header>
+        <header class="mui-bar mui-bar-nav mui-bar-nav-bg" id="trading1" style="display:none;">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color:#FEFEFE;"></a>
+            <h1 class="mui-title" data-locale="TradingCenter">交易中心</h1>
+        </header>
+        <header class="mui-bar mui-bar-nav mui-bar-nav-bg" id="condition1" style="display:none;">
+            <h1 class="mui-title"  data-locale="hangqing">行情</h1>
+        </header>
+    <nav class="mui-bar mui-bar-tab">
+        <a href="http://pb.ztoken.cn/portal/index/market" class="mui-tab-item mui-active hide3" id="defaultTab">
+            <span class="mui-icon iconfont icon-jiaoyipinzhong"></span>
+            <span class="mui-tab-label">DAPP</span> 
+        </a>
+        <a href="http://pb.ztoken.cn/portal/index/wallet_main" class="mui-tab-item">
+            <span class="mui-icon iconfont icon-qianbao"></span>
+            <span class="mui-tab-label" data-locale="wallet" id="wallet">钱包</span>
+        </a>
+        <a href="http://pb.ztoken.cn/portal/index/trading" class="mui-tab-item hide1">
+            <span class="mui-icon iconfont icon-navicon-jylstj"></span>
+            <span class="mui-tab-label" data-locale="trading" id="trading">交易</span>
+        </a>
+        <a href="http://pb.ztoken.cn/portal/index/condition" class="mui-tab-item hide2">
+            <span class="mui-icon iconfont icon-yejibaobiao"></span>
+            <span class="mui-tab-label" data-locale="market" id="condition">行情</span>
+        </a>
+        <a href="http://pb.ztoken.cn/portal/index/ucenter.html" class="mui-tab-item">
+            <span class="mui-icon iconfont icon-wode"></span>
+            <span class="mui-tab-label" data-locale="ucenter" id="ucenter">我的</span> 
+         </a>
+    </nav> 
+    
+    
+
+    <script src="/themes/simpleboot3/public/js/jquery.i18n.properties.js"></script>
+
+    <script src="/themes/simpleboot3/public/js/setlanguage.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    
+    //启用双击监听
+        mui.init({
+            gestureConfig:{ 
+                doubletap:true
+            },
+            subpages:[{
+                url:"http://pb.ztoken.cn/portal/index/market.html", 
+                id:'MainViwe',
+                styles:{
+                    top: '0',
+                    bottom: '60px'
+                }
+            }]
+        });
+    
+    mui('.mui-scroll-wrapper').scroll({
+        deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+    });
+   
+//底部选项卡切换跳转
+(function jumpPage(){
+        //跳转页面
+        var subpages = ['http://pb.ztoken.cn/portal/index/market.html','http://pb.ztoken.cn/portal/index/wallet_main.html', "http://pb.ztoken.cn/portal/index/trading.html",'http://pb.ztoken.cn/portal/index/condition.html' ,'http://pb.ztoken.cn/portal/index/ucenter.html'];
+        var subpage_style = {
+            top: '44px',
+            bottom: '51px'
+        };
+        var aniShow = {};//动画显示
+        //首次启动切滑效果
+             //当前激活选项
+            var activeTab = subpages[0];         
+             //选项卡点击事件
+            mui('.mui-bar-tab').on('tap', 'a', function(e) {
+                console.log(this);
+                var targetTab = this.getAttribute('href');
+                $('#MainViwe').attr('src',targetTab);
+                
+                if ($(this).hasClass("hide3")) {
+                    $(this).parents("body").find("#header1").show();
+                    $(this).parents("body").find("#trading1").hide();
+                    $(this).parents("body").find("#condition1").hide();
+                } else if ($(this).hasClass("hide1")) {
+                    $(this).parents("body").find("#trading1").show();
+                    $(this).parents("body").find("#header1").hide();
+                    $(this).parents("body").find("#condition1").hide();
+                } else if ($(this).hasClass("hide2")) {
+                    $(this).parents("body").find("#condition1").show();
+                    $(this).parents("body").find("#trading1").hide();
+                    $(this).parents("body").find("#header1").hide();
+                } else {
+                    $(this).parents("body").find("#condition1").hide();
+                    $(this).parents("body").find("#trading1").hide();
+                    $(this).parents("body").find("#header1").hide();
+                }
+            });
+             //自定义事件，模拟点击“首页选项卡”
+            document.addEventListener('gohome', function() {
+                var defaultTab = document.getElementById("defaultTab");
+                //模拟首页点击
+                mui.trigger(defaultTab, 'tap');
+                //切换选项卡高亮
+                var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+                if (defaultTab !== current) {
+                    current.classList.remove('mui-active');
+                    defaultTab.classList.add('mui-active');
+                }
+
+    });
+   
+
+        })()
+ $('#dian').click(function(){
+                $('#xiala').toggle();
+            })
+            $('#xiala li').click(function(){
+                $(this).addClass("back").siblings().removeClass("back");
+            }) 
+
+
+    </script>
+</body>
+</html>

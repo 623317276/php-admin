@@ -1,0 +1,82 @@
+<include file="public@header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+	<ul class="nav nav-tabs">
+		<li class="active"><a href="{:url('AdminFinance/teammoney')}">收益明细</a></li>
+		<!-- <li><a href="{:url('user/add')}">{:lang('ADMIN_USER_ADD')}</a></li> -->
+	</ul>
+	<form class="well form-inline margin-top-20" method="post" action="{:url('AdminFinance/teammoney')}">
+		类型:
+		<select name="typename" style="width:120px;height:30px;">
+			<option value="">--请选择--</option>
+			<option value="1" <if condition="!empty($type) && $type eq 1">selected</if>>活期</option>
+			<option value="2" <if condition="!empty($type) && $type eq 2">selected</if>>推荐</option>
+			<option value="3" <if condition="!empty($type) && $type eq 3">selected</if>>大小区</option>
+			<option value="4" <if condition="!empty($type) && $type eq 4">selected</if>>管理员操作</option>
+			<option value="5" <if condition="!empty($type) && $type eq 5">selected</if>>存币</option>
+			<option value="6" <if condition="!empty($type) && $type eq 6">selected</if>>取消存币</option>
+			<option value="7" <if condition="!empty($type) && $type eq 7">selected</if>>STD充币</option>
+			<option value="8" <if condition="!empty($type) && $type eq 8">selected</if>>STD提币</option>
+			<option value="9" <if condition="!empty($type) && $type eq 9">selected</if>>注册赠送</option>
+			<option value="10" <if condition="!empty($type) && $type eq 10">selected</if>>ETH充值</option>
+			<option value="11" <if condition="!empty($type) && $type eq 11">selected</if>>ETH提币</option>
+			<option value="12" <if condition="!empty($type) && $type eq 12">selected</if>>签到赠送</option>
+			<option value="13" <if condition="!empty($type) && $type eq 13">selected</if>>转出</option>
+			<option value="14" <if condition="!empty($type) && $type eq 14">selected</if>>转入</option>
+			<option value="15" <if condition="!empty($type) && $type eq 15">selected</if>>数字支付</option>
+			<option value="16" <if condition="!empty($type) && $type eq 16">selected</if>>空投赠送</option>
+			<option value="17" <if condition="!empty($type) && $type eq 17">selected</if>>后台扣除存币量</option>
+		</select>&nbsp;
+		收益人账户:
+		<input type="text" class="form-control" name="username" style="width: 200px;"
+			   value='<if condition="!empty($username)">{$username}</if>' placeholder="请输入收益人账户">
+		<input type="submit" class="btn btn-primary" value="搜索"/>
+		<a class="btn btn-danger" href="{:url('AdminFinance/teammoney')}">清空</a>
+	</form>
+	<table class="table table-hover table-bordered">
+		<thead>
+		<tr>
+			<th width="50">ID</th>
+			<th>数量</th>
+			<th>用户</th>
+			<th>类型</th>
+			<th>日期</th>
+			<!-- <th width="130">操作</th> -->
+		</tr>
+		</thead>
+		<foreach name="list" item="vo">
+			<tr>
+				<td><b>{$vo.id}</b></td>
+				<td>{$vo.num}</td>
+				<td>{$vo.mobile}</td>
+				<eq name="vo.type" value="1"><td> 活期 </td></eq>
+				<eq name="vo.type" value="2"><td> 推荐 </td></eq>
+				<eq name="vo.type" value="3"><td> 大小区 </td></eq>
+				<eq name="vo.type" value="4"><td> 管理员操作 </td></eq>
+				<eq name="vo.type" value="5"><td> 存币 </td></eq>
+				<eq name="vo.type" value="6"><td> 取消存币 </td></eq>
+				<eq name="vo.type" value="7"><td> STD充币 </td></eq>
+				<eq name="vo.type" value="8"><td> STD提币 </td></eq>
+				<eq name="vo.type" value="9"><td> 注册赠送 </td></eq>
+				<eq name="vo.type" value="10"><td> ETH充值 </td></eq>
+				<eq name="vo.type" value="11"><td> ETH提币 </td></eq>
+				<eq name="vo.type" value="12"><td> 签到赠送 </td></eq>
+				<eq name="vo.type" value="13"><td> 转出到{$vo.dfname} </td></eq>
+				<eq name="vo.type" value="14"><td> {$vo.dfname}转入 </td></eq>
+				<eq name="vo.type" value="15"><td> 数字支付 </td></eq>
+				<eq name="vo.type" value="16"><td> 空投赠送 </td></eq>
+				<eq name="vo.type" value="17"><td> 后台扣除存币量 </td></eq>
+				<td>{$vo['time']|date="Y-m-d H:i:s",###}</td>
+
+				<!-- <td>
+					<a href="{:url('AdminFinance/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+				</td> -->
+			</tr>
+		</foreach>
+	</table>
+	<div class="pagination"> {$page|default=''}</div>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+.mui-bar{
+	background-color:#fff !important;
+}
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea {
+    
+    border: 1px solid transparent !important;
+     
+}
+.mui-active{
+	background-color:#transparent !important;
+	color:#000;
+}
+.mui-title{
+	color:#1F3F58 !important;
+	font-size:17px !important;
+	letter-spacing:0.15em;
+}
+.mui-content{
+	background-color:#F8F8FA !important;
+	color:#fff !important;
+	width:95% !important;
+	margin:0 auto !important;
+	line-height:21px;
+}
+.mui-bar-nav {
+	-webkit-box-shadow: 0 1px 6px transparent; 
+     box-shadow: 0 1px 6px transparent; 
+}
+.pri_money{
+	margin:3% 0%;
+	padding:6% 2%;
+	background-color:#fff;
+	font-size:16px;
+}
+.pri_name{
+	color:#5B6478;
+	font-size:15px;
+}
+.pri_content{
+	font-size:18px;
+	text-align:right;
+}
+.pri_money1{
+	margin:3% 0%;
+	padding:3% 2%;
+	background-color:#fff;
+	font-size:16px;
+}
+.pri_money1 input{
+	padding:0px !important;
+	margin-bottom:0px !important;
+	background-color:#fff !important;
+	color:#273D4B;
+	font-size:15px;
+}
+ input::-webkit-input-placeholder {
+    color: #8C9FAD !important;       
+ }
+ .mui-content p{
+ 	margin-left:2% !important;
+ 	color:#223E56 !important;
+ }
+.query_result{
+	font-size:14px;
+	color:#5B6478;
+}
+.login_button{
+	width:100%;
+	text-align:center;
+	border-radius:20px;
+	padding:3%;
+	margin-top:12%;
+	font-size:16px;
+	background-color:#2691E3;
+	color:#fff;
+	border:1px solid transparent !important;
+
+}
+
+.xiala{
+	background-color:#FFFFFF;
+	color:#5B6478;
+	padding:2%  0!important;
+	margin-bottom:0px !important;
+}

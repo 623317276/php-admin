@@ -1,0 +1,94 @@
+.mui-content{
+	background-color:#F8F8FA !important;
+}
+.head_img{
+	text-align:center;
+}
+.mui-active{
+	background-color:#transparent !important;
+	color:#000;
+}
+.head_img{
+	width:80px;
+	height:80px;
+	margin:0 auto;
+}
+.head_img img{
+	width:100%;
+	height:100%;
+	border-radius:100%;
+}
+.name{
+	font-size:20px;
+	color:#2B4659;
+	margin:3% 0;
+	text-align:center;
+}
+.ucenter_top{
+	text-align:center;
+	background-color:#F8F8FA;
+	width:100%;
+	margin:0 auto;
+	margin-top:5%;
+	padding:5% 0;
+	border-radius:10px;
+	padding-bottom:0px;
+}
+.ucenter_middle{
+	background-color:#fff;
+	padding-bottom:3%;
+	padding-top:3%;
+}
+.ucenter_middle img{
+	width:15%;
+}
+.ucenter_middle p{
+	font-size:14px;
+
+	margin-top:3%;
+	line-height:17px;
+}
+.ucenter_bottom{
+	background-color:#fff;
+	width:100%;
+	margin:5% auto;
+	margin-top:0px;
+	padding: 0;
+	border-radius:10px;
+	margin-bottom:10%;
+}
+.mui-table-view{
+	background-color:transparent !important;
+	color:#fff;
+}
+.icon_img{
+	text-align:center;
+}
+.jiantou{
+	text-align:right;
+}
+.icon_img img{
+	width:30%;
+}
+.jiantou img{
+	width:10%;
+}
+.mui-table-view-cell {
+    padding:18px 0px;
+    padding-right:3%;
+}
+.mui-table-view-cell:after {
+   left:0px;
+   background-color:#fff !important;
+}
+.ucenter_name{
+	font-size:15px;
+	color:#C8C8CB;
+	text-align:left;
+}
+.mui-table-view:after{
+	background-color:transparent;
+}
+.mui-table-view:before{
+	background-color:transparent;
+}

@@ -1,0 +1,80 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:url('AdminFinance/declaration')}">投资管理</a></li>
+			<!-- <li><a href="{:url('user/add')}">{:lang('ADMIN_USER_ADD')}</a></li> -->
+		</ul>
+        <form class="well form-inline margin-top-20" method="get" action="{:url('AdminFinance/declaration')}"> 
+			投资类型:
+			<select name="investment" style="width:120px;height:30px;">
+				<option value="">--请选择--</option>
+				<volist name="investment" id="v">
+					<option value="{$v['Id']}" <if condition="isset($id) && $id eq $v['Id']">selected</if>>{$v['name']}</option>
+				</volist>
+			</select>&nbsp;
+            投资人账户:
+			<input type="text" class="form-control" name="username" style="width: 200px;"
+				   value='<if condition="!empty($username)">{$username}</if>' placeholder="请输入用户名或手机号">
+			<input type="submit" class="btn btn-primary" value="搜索"/>
+			<a class="btn btn-danger" href="{:url('AdminFinance/declaration')}">清空</a>
+        </form>
+
+        <form class="well form-inline margin-top-20" method="get" action="{:url('AdminFinance/export')}"> 
+			
+			<input type="submit" class="btn btn-primary" value="导出"/>
+        </form>
+
+		<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<!-- <th width="15">
+						<label>
+							<input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
+						</label>
+					</th> -->
+					<th width="50">ID</th>
+					<th>投资类型</th>
+					<th>投资金额</th>
+					<th>产生收益</th>
+					<th>用户名</th>
+					<th>手机号</th>
+					<th>投资起始日期</th>
+					<!-- <th width="130">操作</th> -->
+				</tr>
+			</thead>
+			<foreach name="list" item="vo">
+				<tr>
+					<!-- <td>
+						<input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
+							   value="{$vo.Id}" title="ID:{$vo.Id}">
+					</td> -->
+
+					<td><b>{$vo.Id}</b></td>
+
+					<td>
+						<if condition="$vo['investment'] eq 1">
+							<p>3万</p>
+							<elseif condition="($vo['investment'] eq 2)">
+							<p>15万</p>
+						</if>
+					</td>
+					<td>{$vo['money']}</td>
+					<td>{$vo['income']}</td>
+					<td>{$vo['username']}</td>
+					<td>{$vo['phone']}</td>
+					<td>{$vo['starttime']|date="Y-m-d H:i:s",###}</td>
+
+					<!-- <td>
+						<a href="{:url('AdminFinance/deletedec',array('id'=>$vo['Id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+					</td> -->
+				</tr>
+			</foreach>
+		</table>
+		<div class="pagination"> {$page|default=''}</div>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+
+</body>
+</html>
